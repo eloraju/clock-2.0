@@ -53,6 +53,9 @@ importers:
       '@fontsource/fira-mono':
         specifier: ^4.5.10
         version: 4.5.10
+      '@fontsource/roboto-mono':
+        specifier: ^5.0.16
+        version: 5.0.16
       '@neoconfetti/svelte':
         specifier: ^1.0.0
         version: 1.0.0
@@ -873,6 +876,10 @@ packages:
 
   /@fontsource/fira-mono@4.5.10:
     resolution: {integrity: sha512-bxUnRP8xptGRo8YXeY073DSpfK74XpSb0ZyRNpHV9WvLnJ7TwPOjZll8hTMin7zLC6iOp59pDZ8EQDj1gzgAQQ==}
+    dev: true
+
+  /@fontsource/roboto-mono@5.0.16:
+    resolution: {integrity: sha512-unZYfjXts55DQyODz0I9DzbSrS5DRKPNq9crJpNJe/Vy818bLnijprcJv3fvqwdDqTT0dRm2Fhk09QEIdtAc+Q==}
     dev: true
 
   /@google-cloud/firestore@6.8.0:
