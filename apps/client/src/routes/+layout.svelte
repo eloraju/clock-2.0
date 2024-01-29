@@ -17,6 +17,7 @@
 
   main {
     display: flex;
+    justify-content: center;
   }
 
   @media (min-width: 480px) {

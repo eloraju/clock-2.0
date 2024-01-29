@@ -1,8 +1,5 @@
 <script>
+  import NewGameModal from "../lib/components/NewGameModal/NewGameModal.svelte";
 </script>
 
-<div>
-  <p>Hello there!</p>
-</div>
-
-<style></style>
+<NewGameModal />
