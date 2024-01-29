@@ -1,0 +1,8 @@
+{
+  "name": "firestore",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "deploy": "firebase deploy --only firestore"
+  }
+}
