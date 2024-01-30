@@ -1,8 +1,10 @@
 <script lang="ts">
   import logo from "$lib/images/logo.png";
-  import DurationPicker from "./DurationPicker.svelte";
-  import GameDuration from "./GameDuration.svelte";
-  import Player from "./Player.svelte";
+  import RadioButton from "../shared/RadioButton.svelte";
+  import ArmyPicker from "./components/ArmyPicker.svelte";
+  import DurationPicker from "./components/DurationPicker.svelte";
+  import NameInput from "./components/NameInput.svelte";
+  import StartGameBtn from "./components/StartGameBtn.svelte";
 
   let playerA: string;
   let playerB: string;
@@ -17,26 +19,38 @@
     <img src={logo} alt="THE LOGO!" />
 
     <div class="data-container">
-      <h3>1. Type in player names</h3>
+      <h1>1. Type in player names</h1>
       <div class="data">
-        <Player bind:name={playerA} {startingPlayer} playerId={1} />
-        <Player bind:name={playerB} {startingPlayer} playerId={2} />
+        <div class="name-starter">
+          <NameInput bind:name={playerA} playerId={1} />
+          <RadioButton {startingPlayer} playerId={1} />
+        </div>
+        <div class="name-starter">
+          <NameInput bind:name={playerB} playerId={2} />
+          <RadioButton {startingPlayer} playerId={2} />
+        </div>
       </div>
     </div>
 
     <div class="data-container">
-      <h3>2. Select armies</h3>
-      <div class="data"></div>
+      <h1>2. Select armies</h1>
+      <div class="data">
+        <ArmyPicker name="army1" playerId={1} bind:value={armyA} />
+        <ArmyPicker name="army2" playerId={2} bind:value={armyB} />
+      </div>
     </div>
 
     <div class="data-container">
-      <h3>3. Adjust game length</h3>
+      <h1>3. Adjust game length</h1>
       <DurationPicker bind:duration />
+    </div>
+    <div class="start-wrapper">
+      <StartGameBtn />
     </div>
   </div>
 </form>
 
-<style>
+<style lang="scss">
   .main {
     display: flex;
     flex-direction: column;
@@ -50,21 +64,34 @@
     margin-top: 64px;
   }
 
-  h3 {
+  h1 {
     color: white;
     font-size: 18px;
+    font-weight: 700;
   }
 
   .data-container {
     display: flex;
     flex-direction: column;
+    gap: 16px;
+
+    .data {
+      display: flex;
+      flex-direction: row;
+      gap: 16px;
+      justify-content: space-between;
+
+      .name-starter {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+      }
+    }
   }
 
-  .data {
+  .start-wrapper {
     display: flex;
-    flex-direction: row;
-    gap: 16px;
-    justify-content: space-between;
+    justify-content: center;
   }
 
   img {

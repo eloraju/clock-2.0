@@ -31,7 +31,7 @@
   <input type="number" name="duration" hidden bind:value={duration} />
 </div>
 
-<style>
+<style lang="scss">
   .container {
     display: flex;
     justify-content: center;
@@ -43,29 +43,43 @@
     font-weight: 600;
   }
 
-  button {
-    appearance: unset;
-    border: none;
-    border-radius: 99px;
-    background: #040d12;
-    color: white;
-    font-size: 16px;
-    margin: 2px;
-    position: relative;
-  }
-
   .btn-wrapper {
     display: flex;
     justify-content: center;
     border-radius: 99px;
+
+    button {
+      font-family: "Roboto Mono";
+      appearance: unset;
+      border: none;
+      border-radius: 99px;
+      background: #040d12;
+      color: white;
+      font-size: 16px;
+      margin: 2px;
+      position: relative;
+      cursor: pointer;
+      font-weight: 500;
+      font-size: 17px;
+
+      &:hover {
+        background: #00000000;
+      }
+    }
   }
 
   .add {
     background: linear-gradient(#99d78f, #50a443);
+    &:active {
+      background: linear-gradient(#88c68e, #3f9332);
+    }
   }
 
   .sub {
     background: linear-gradient(#ff6464, #f10000);
+    &:active {
+      background: linear-gradient(#ee5353, #e00000);
+    }
   }
 
   input {
