@@ -45,6 +45,9 @@ importers:
       '@neoconfetti/svelte':
         specifier: ^1.0.0
         version: 1.0.0
+      '@repo/types':
+        specifier: workspace:*
+        version: link:../../packages/types
       '@sveltejs/adapter-auto':
         specifier: ^3.0.0
         version: 3.1.1(@sveltejs/kit@2.5.0)

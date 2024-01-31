@@ -29,7 +29,7 @@ app.get("/ping", (req, res) => {
 });
 
 app.post("/game", async (req, res) => {
-  const id = await createGame(db);
+  const id = await createGame(db, JSON.parse(req.body));
   res.status(200).send({ id });
 });
 

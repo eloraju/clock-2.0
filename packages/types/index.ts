@@ -10,7 +10,6 @@ export enum Action {
 }
 
 export type Player = {
-  id: string;
   name: string;
   army: string;
 };

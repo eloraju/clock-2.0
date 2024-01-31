@@ -18,8 +18,5 @@
   "firestore": {
     "rules": "packages/firestore/firestore.rules",
     "indexes": "packages/firestore/firestore.indexes.json"
-  },
-  "storage": {
-    "rules": "/packages/firebase-storage/storage.rules"
   }
 }

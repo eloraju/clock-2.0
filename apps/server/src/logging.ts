@@ -31,7 +31,7 @@ export function logTraffic(req: Request, res: Response, next: NextFunction) {
   res.send = responseInterceptor(res, res.send);
   logger.info({
     type: "request",
-    body,
+    body: JSON.stringify(body),
     params,
     endpoint,
     method,
