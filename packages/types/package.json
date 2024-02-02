@@ -2,8 +2,12 @@
   "name": "@repo/types",
   "version": "0.0.0",
   "private": true,
+  "type": "module",
   "main": "index.ts",
   "types": "index.ts",
+  "scripts":{
+    "build": "tsc ."
+  },
   "devDependencies": {
     "typescript": "^5.3.3"
   }

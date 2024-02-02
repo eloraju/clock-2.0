@@ -1,12 +1,9 @@
-export type Foo = { bar: boolean };
-
 export enum Action {
-  PAUSE,
-  END_TURN,
   START_GAME,
+  PAUSE,
+  RESUME,
+  END_TURN,
   END_GAME,
-  START_TURN,
-  CONTINUE,
 }
 
 export type Player = {
@@ -16,7 +13,7 @@ export type Player = {
 
 export type PlayerAction = {
   action: Action;
-  player: Player;
+  player: string;
   timestamp: number;
 };
 
@@ -24,9 +21,11 @@ export type Game = {
   id?: string;
   players: Player[];
   actions: PlayerAction[];
-  startTime?: number;
-  round?: number;
-  started?: boolean;
-  totalTime?: number;
-  turn?: number;
+  startTime: number;
+  round: number;
+  started: boolean;
+  ended: boolean;
+  duration: number;
+  turn: number;
+  currentPlayer: number;
 };

@@ -11,7 +11,7 @@ import { onRequest } from "firebase-functions/v2/https";
 import * as express from "express";
 import { logTraffic } from "./logging";
 import * as admin from "firebase-admin";
-import { createGame } from "./createGame";
+import { v1 } from "./v1";
 
 const app = express();
 admin.initializeApp();
@@ -28,15 +28,6 @@ app.get("/ping", (req, res) => {
   res.send({ ping: "pong" });
 });
 
-app.post("/game", async (req, res) => {
-  const id = await createGame(db, JSON.parse(req.body));
-  res.status(200).send({ id });
-});
-
-app.get("/game/:gameId", async (req, res) => {
-  //TODO: Add fp-ts optionals here
-  const game = await games.doc(req.params.gameId).get();
-  res.send(game.data());
-});
+app.use("/v1", v1(games, db));
 
 export const api = onRequest(app);
