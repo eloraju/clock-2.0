@@ -16,7 +16,6 @@ import { v1 } from "./v1";
 const app = express();
 admin.initializeApp();
 const db = admin.firestore();
-const games = db.collection("games");
 
 app.use(logTraffic);
 
@@ -28,6 +27,6 @@ app.get("/ping", (req, res) => {
   res.send({ ping: "pong" });
 });
 
-app.use("/v1", v1(games, db));
+app.use("/v1", v1(db));
 
 export const api = onRequest(app);
