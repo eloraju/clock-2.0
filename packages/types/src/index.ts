@@ -4,6 +4,7 @@ export enum Action {
   RESUME,
   END_TURN,
   END_GAME,
+  SWITCH_PLAYER,
 }
 
 export type Player = {
@@ -28,4 +29,18 @@ export type Game = {
   duration: number;
   turn: number;
   currentPlayer: number;
+};
+
+export type JSON = string;
+
+export type OkRes = {
+  error: false;
+  status: number;
+  body: JSON;
+};
+
+export type ErrRes = {
+  error: true;
+  status: number;
+  body: JSON;
 };

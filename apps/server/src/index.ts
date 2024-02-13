@@ -9,7 +9,7 @@
 
 import { onRequest } from "firebase-functions/v2/https";
 import * as express from "express";
-import { logTraffic } from "./logging";
+import { logTraffic } from "./middleware/logging";
 import * as admin from "firebase-admin";
 import { v1 } from "./v1";
 
@@ -18,6 +18,11 @@ admin.initializeApp();
 const db = admin.firestore();
 
 app.use(logTraffic);
+
+app.use(async (req, res, next) => {
+  req.db = db;
+  next();
+});
 
 app.get("/hello", (req, res) => {
   res.send("Hello, World! How are you?");

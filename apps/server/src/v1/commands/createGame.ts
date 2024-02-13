@@ -22,10 +22,10 @@ function getBaseGame(): Game {
 /**
  * Create a new game in the database.
  * @param {Firestore} db - The Firestore instance.
- * @param {Game} game - The game object.
+ * @param {Game} game - The new game object to create.
  * @return {Promise<string>} The ID of the newly created game.
  */
-export async function createGame(db: Firestore, game: Game) {
+export async function createGame(db: Firestore, game: Game): Promise<string> {
   const newGame = { ...getBaseGame(), ...game };
   logger.debug("Creating new game", { newGame });
   const ref = await db.collection("games").add(newGame);
