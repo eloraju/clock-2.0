@@ -6,6 +6,7 @@
 	import TextInput from '$lib/components/TextInput.svelte';
 	import type { Game, Player } from '@repo/types';
 	import { goto } from '$app/navigation';
+	import { PUBLIC_API_URL } from '$env/static/public';
 
 	let startingPlayer = 1;
 	let duration = 1.5 * 60 * 60; // 1.5h
@@ -16,7 +17,7 @@
 	];
 
 	async function createGame() {
-		const res = await fetch('/game', {
+		const res = await fetch(`${PUBLIC_API_URL}/game`, {
 			method: 'POST',
 			headers: {
 				'Content-Type': 'application/json'
@@ -61,7 +62,11 @@
 		<h1>2. Select armies</h1>
 		<div class="data">
 			{#each players as player, index}
-				<ArmyPicker name={`army_${index}`} playerId={index} bind:value={player.army} />
+				<ArmyPicker
+					name={`army_${index}`}
+					playerId={player.name || index + 1}
+					bind:value={player.army}
+				/>
 			{/each}
 		</div>
 	</div>

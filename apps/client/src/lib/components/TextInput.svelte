@@ -6,7 +6,7 @@
 </script>
 
 <div class="container">
-	<label for="name_input">{label}</label>
+	<label for="name_input">{value || label}</label>
 	<input {required} bind:value type="text" id="name_input" {name} />
 </div>
 

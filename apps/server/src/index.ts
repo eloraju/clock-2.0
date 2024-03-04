@@ -11,7 +11,7 @@ import { onRequest } from "firebase-functions/v2/https";
 import * as express from "express";
 import { logTraffic } from "./middleware/logging";
 import * as admin from "firebase-admin";
-import { v1 } from "./v1";
+import { v1Router } from "./v1";
 
 const app = express();
 admin.initializeApp();
@@ -32,6 +32,6 @@ app.get("/ping", (req, res) => {
   res.send({ ping: "pong" });
 });
 
-app.use("/v1", v1(db));
+app.use("/v1", v1Router);
 
 export const api = onRequest(app);
